@@ -1,5 +1,5 @@
-#ifndef RESONANCETYPE_H
-#define RESONANCETYPE_H
+#ifndef RESONANCETYPEH
+#define RESONANCETYPEH
 #include "ParticleType.h"
 
 class ResonanceType : public ParticleType {
@@ -9,7 +9,7 @@ class ResonanceType : public ParticleType {
   void Print() const;
 
  private:
-  const double fWidth_;
+  const double fWidth;
 };
 
 

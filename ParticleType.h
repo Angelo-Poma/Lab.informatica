@@ -1,6 +1,7 @@
-#ifndef PARTICLETYPE_H
-#define PARTICLETYPE_H
+#ifndef PARTICLETYPEH
+#define PARTICLETYPEH
 #include <iostream>
+#include <cmath>
 
 class ParticleType {
  public:
@@ -10,11 +11,12 @@ class ParticleType {
   double GetMass() const;
   int GetCharge() const;
   virtual void Print() const;
+  virtual double GetWidth() const;
 
  private:
-   char* fName_;
-  const double fMass_;
-  const int fCharge_;
+   char* fName;
+  const double fMass;
+  const int fCharge;
 };
 
 
