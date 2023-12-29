@@ -1,5 +1,5 @@
-#ifndef RESONANCETYPEH
-#define RESONANCETYPEH
+#ifndef RESONANCETYPE_H
+#define RESONANCETYPE_H
 #include "ParticleType.h"
 
 class ResonanceType : public ParticleType {

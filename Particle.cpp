@@ -21,10 +21,17 @@ Particle::Particle(char* name, double Px = 0, double Py = 0, double Pz = 0)
   else{fIndex = FindParticle(name);}
 }
 
+Particle::Particle()
+    {
+  fIndex = -1;
+  fPx = 0;
+  fPy = 0;
+  fPz = 0;
+}
 
 int Particle::GetIndex() { return fIndex;}
 
-void Particle::AddParticleType(char* name, double mass, int charge, double width = 0){  //potrebbe creare problemi l'inizializzazione di width a 0
+void Particle::AddParticleType(char* name, double mass, int charge, double width){  //potrebbe creare problemi l'inizializzazione di width a 0
     if(FindParticle(name) != -1){
         std::cout<<"Particle already inserted in index number "<<FindParticle(name) << '\n';
     }
@@ -51,7 +58,7 @@ void Particle::PrintInfo(){
 }
 
 void Particle::Setter(int index){
-    if(fIndex <= fNParticleType){
+    if(fIndex < fNParticleType){
     fIndex = index;
     }
     else{
@@ -79,8 +86,11 @@ const double Particle::GetPz() const{
 const double Particle::GetMass() const{ 
   return fParticleType[fIndex]->GetMass(); //non siamo certi, magari serve un -1
 }
+const double Particle::GetCharge() const{
+  return fParticleType[fIndex]->GetCharge();
+}
 const double Particle::GetEnergy() const{
-  return sqrt(GetMass()*GetMass() + (fPx*fPx + fPy*fPy + fPz*fPx)); //non sappiamo a cosa si debba riferire
+  return sqrt(GetMass()*GetMass() + (fPx*fPx + fPy*fPy + fPz*fPz)); 
 }
 const double Particle::InvMass(Particle& p) const{
   return sqrt(pow(GetEnergy() + p.GetEnergy() , 2 ) - (pow((fPx + p.fPx) , 2) + pow((fPy + p.fPy) , 2) + pow((fPz + p.fPz) , 2) ) );
@@ -166,19 +176,3 @@ void Particle::Boost(double bx, double by, double bz)
 
 
 
-
-
-
-
-
-
-
-
-
-
-/* se ni' mondo ci fosse un po' di bene
-ed ognun si considerasse suo fratello
-ci srebbero meno dolori e meno PTHREADCANCELENABLEed il mondo ne sarebbe assai più BITSTYPESLOCALETH
-
-- Pietro Pacciani
-*/

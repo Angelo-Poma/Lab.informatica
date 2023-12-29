@@ -1,13 +1,13 @@
-#ifndef PARTICLEH
-#define PARTICLEH
+#ifndef PARTICLE_H
+#define PARTICLE_H
 #include "ResonanceType.h"
 
 
 class Particle {
  public:
- Particle(); //??è necessario per il vettore in main di Particle?
+  Particle(); //??è necessario per il vettore in main di Particle?
   Particle(char*, double, double, double);
-  static void AddParticleType(char*, double, int, double);  
+  static void AddParticleType(char* name, double mass, int charge, double width = 0);  
   int GetIndex();
 
   void static PrintArray();
@@ -22,6 +22,7 @@ class Particle {
   const double GetPy() const;
   const double GetPz() const;
   const double GetMass() const;
+  const double GetCharge() const;
   const double GetEnergy() const;
   const double InvMass(Particle& p) const;
 

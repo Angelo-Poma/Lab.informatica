@@ -48,7 +48,7 @@ int main() {
   /* Particle Eggidio ("Asdrubale", 33, 44.44, 6.2 ); //error test */
    
   Particle::PrintArray ();
- Bromio.PrintInfo();
+  Bromio.PrintInfo();
   std::cout << Proteo.GetEnergy () << std::endl;
   std::cout << Bromio.GetEnergy () << std::endl;
   std::cout << Proteo.InvMass (Bromio) << std::endl;

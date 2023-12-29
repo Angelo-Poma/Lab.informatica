@@ -1,5 +1,5 @@
-#ifndef PARTICLETYPEH
-#define PARTICLETYPEH
+#ifndef PARTICLETYPE_H
+#define PARTICLETYPE_H
 #include <iostream>
 #include <cmath>
 
