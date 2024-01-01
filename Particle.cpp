@@ -4,7 +4,7 @@
 ParticleType* Particle::fParticleType[Particle::fMaxNumParticleType]; 
 int Particle::fNParticleType = 0;
 
-int Particle::FindParticle(char* name) {  // un nome più descrittivo sarebbe FindParticleIndex
+int Particle::FindParticle(char* name) {  // #un nome più descrittivo sarebbe FindParticleIndex
   for (int i = 0; i < fNParticleType; i++) {
     if (fParticleType[i]->GetName() == name) {
       return i;

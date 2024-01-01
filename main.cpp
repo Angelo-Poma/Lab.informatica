@@ -9,9 +9,9 @@ int Main () {
     double phi;
     double theta;
     double p;
-    int n; //#indice particelle decadimento
+    int n; 
     
-    const int Nevents (1e4); //#capire se si può usare, originalmente 10e^4
+    const int Nevents (1e5); //#aggiustare
     const int NeventsParticles (120);
     Particle EventsParticles [NeventsParticles];
 
@@ -28,14 +28,14 @@ int Main () {
     TH1F *h1 = new TH1F("h1", "Particles types", 10, 0, 10);
     TH1F *h2 = new TH1F("h2", "azimuthal angles", 100, 0, 2 * M_PI);
     TH1F *h3 = new TH1F("h3", "polar angles", 100, 0, M_PI);
-    TH1F* h4 = new TH1F("h4", "Impulse", 10000, 0, 10);
-    TH1F* h5 = new TH1F("h5", "Transverse impulse", 1000, 0, 10);
+    TH1F* h4 = new TH1F("h4", "Impulse", 100, 0, 4);
+    TH1F* h5 = new TH1F("h5", "Transverse impulse", 1000, 0, 3);
     TH1F* h6 = new TH1F("h6", "energy", 100, 0., 3.5);
-    TH1F* h7 = new TH1F("h7", "Invariant mass: discordant charge particles", 1000, 0., 3.5);
-    TH1F* h8 = new TH1F("h8", "Invariant mass: concordant charge particles", 1000, 0., 3.5);
-    TH1F* h9 = new TH1F("h9", "Invariant mass: pion+/kaon- and pion-/kaon+", 1000, 0., 3.5);
-    TH1F* h10 = new TH1F("h10", "Invariant mass: pion+/kaon+ and pion-/kaon-", 1000, 0., 3.5);
-    TH1F* h11 = new TH1F("h11", "Invariant mass between particles generated from decayment", 100, 0., 1.5);
+    TH1F* h7 = new TH1F("h7", "Invariant mass: discordant charge particles", 200, 0., 3.5);
+    TH1F* h8 = new TH1F("h8", "Invariant mass: concordant charge particles", 200, 0., 3.5);
+    TH1F* h9 = new TH1F("h9", "Invariant mass: pion+/kaon- and pion-/kaon+", 150, 0., 3.5);
+    TH1F* h10 = new TH1F("h10", "Invariant mass: pion+/kaon+ and pion-/kaon-", 150, 0., 3.5);
+    TH1F* h11 = new TH1F("h11", "Invariant mass between particles generated from decayment", 75, 0., 1.5);
 
     h7->Sumw2();
     h8->Sumw2();
@@ -131,36 +131,17 @@ int Main () {
     }     
     
     TFile *file = new TFile("histograms.root", "RECREATE"); //#ha senso recreate?
-    TCanvas *c1 = new TCanvas("histograms pt1", "histograms pt1", 10, 20, 500, 600);
-    TCanvas *c2 = new TCanvas("histograms pt2", "histograms pt2", 10, 20, 500, 600);
-    c1 -> Divide(3,3);
-    c2 -> Divide(3,2);
-
-    c1 -> cd(1);
-    h1 -> Draw();  
-    c1 -> cd(2);
-    h2 -> Draw(); 
-    c1 -> cd(3);
-    h3 -> Draw(); 
-    c1 -> cd(4);
-    h4 -> Draw(); 
-    c1 -> cd(5);
-    h5 -> Draw(); 
-    c1 -> cd(6);
-    h6 -> Draw(); 
-
-    c2 -> cd(1);
-    h7 -> Draw("hist c");
-    c2 -> cd(2);
-    h8 -> Draw("hist c");
-    c2 -> cd(3);
-    h9 -> Draw("hist c");
-    c2 -> cd(4);
-    h10 -> Draw("hist c");
-    c2 -> cd(5);
-    h11 -> Draw("hist c");
-       
-    file->Write(); 
+    file->WriteObject(h1, "h1");
+    file->WriteObject(h2, "h2");
+    file->WriteObject(h3, "h3");
+    file->WriteObject(h4, "h4");
+    file->WriteObject(h5, "h5");
+    file->WriteObject(h6, "h6");
+    file->WriteObject(h7, "h7");
+    file->WriteObject(h8, "h8");
+    file->WriteObject(h9, "h9");
+    file->WriteObject(h10, "h10");
+    file->WriteObject(h11, "h11");
     file->Close();
 
    return 0;
