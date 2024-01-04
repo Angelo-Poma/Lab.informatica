@@ -31,11 +31,11 @@ int Main () {
     TH1F* h4 = new TH1F("h4", "Impulse", 100, 0, 4);
     TH1F* h5 = new TH1F("h5", "Transverse impulse", 1000, 0, 3);
     TH1F* h6 = new TH1F("h6", "energy", 100, 0., 3.5);
-    TH1F* h7 = new TH1F("h7", "Invariant mass: discordant charge particles", 200, 0., 3.5);
-    TH1F* h8 = new TH1F("h8", "Invariant mass: concordant charge particles", 200, 0., 3.5);
-    TH1F* h9 = new TH1F("h9", "Invariant mass: pion+/kaon- and pion-/kaon+", 150, 0., 3.5);
-    TH1F* h10 = new TH1F("h10", "Invariant mass: pion+/kaon+ and pion-/kaon-", 150, 0., 3.5);
-    TH1F* h11 = new TH1F("h11", "Invariant mass between particles generated from decayment", 75, 0., 1.5);
+    TH1F* h7 = new TH1F("h7", "Invariant mass: discordant charge particles", 200, 0., 5);
+    TH1F* h8 = new TH1F("h8", "Invariant mass: concordant charge particles", 200, 0., 5);
+    TH1F* h9 = new TH1F("h9", "Invariant mass: pion+/kaon- and pion-/kaon+", 150, 0., 5);
+    TH1F* h10 = new TH1F("h10", "Invariant mass: pion+/kaon+ and pion-/kaon-", 150, 0., 5);
+    TH1F* h11 = new TH1F("h11", "Invariant mass between particles generated from decayment", 60, 0., 1.5);
 
     h7->Sumw2();
     h8->Sumw2();
